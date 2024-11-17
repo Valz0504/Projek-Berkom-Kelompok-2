@@ -1,5 +1,4 @@
-# Projek-Berkom-Kelompok-2
-Food Ordering System Sederhana
+# Projek Berkom Kelompok 2 Food Ordering System Sederhana
 
 Repository ini berisi source code, file PPT, dan laporan akhir dari Tugas Berpikir Komputasional.
 Kelompok kami terdiri dari:
