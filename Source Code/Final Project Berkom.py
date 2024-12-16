@@ -104,6 +104,7 @@ pesanan_jumlah = [0] * max_pesanan
 pesanan_harga = [0] * max_pesanan
 pesanan_total = [0] * max_pesanan
 total_harga = 0
+kustomisasi = [""] * max_pesanan
 #=================================
 
 #Variabel Data Meja dan Nomor Antrian
@@ -206,39 +207,11 @@ def do_order(list_barang, stok_barang, harga_barang, indeks_pesanan, choice_jeni
     #Mengurangi stok sesuai dengan jumlah pesanan yang sudah ditambahkan ke daftar pesanan
     kurangi_stok(stok_barang, pilihan, banyak)
 
-    if choice_jenis == 4:
+    #Memberi keterangan untuk tambahan
+    kustomisasi[indeks_pesanan-1] = input("Masukkan keterangan untuk tambahan untuk makanan/minuman: ")
 
-        #Memilih ukuran gelas minuman
-        for i in range(banyak):
-
-            pilih_ukuran_gelas = False
-            while pilih_ukuran_gelas == False:
-                
-                print(f"Ukuran gelas minuman {i+1}:")
-                print("1. Small (S) : +Rp. 0")
-                print("2. Medium (M) : +Rp. 4000")
-                print("3. Large (L): +Rp. 5000")
-                print()
-
-                ukuran_gelas = input("Pilih ukuran gelas untuk minuman kamu! (S / M / L): ")
-                print()
-
-                if ukuran_gelas == "S":
-                    total_harga += 0
-                    pilih_ukuran_gelas = True
-                elif ukuran_gelas == "M":
-                    total_harga += 4000
-                    pilih_ukuran_gelas = True
-                elif ukuran_gelas == "L":
-                    total_harga += 5000
-                    pilih_ukuran_gelas = True
-        
-        return_value[0] = indeks_pesanan
-        return_value[1] = total_harga
-    
-    else:
-        return_value[0] = indeks_pesanan
-        return_value[1] = total_harga
+    return_value[0] = indeks_pesanan
+    return_value[1] = total_harga
 
     return return_value
 
@@ -581,6 +554,9 @@ while True:
                                     if (yakin_checkout == "y"):
                                         time.sleep(1)
                                         os.system('cls')
+                                        print("Tip anda akan sangat berarti untuk kami")
+                                        tip = int(input("Rp. "))
+                                        total_harga += tip
 
                                         #OPSI PEMBAYARAN
                                         opsi_pembayaran = ["Tunai", "ATM", "Kredit", "QRIS"]
@@ -618,6 +594,8 @@ while True:
                                             print("--------------------------------------------------")
                                             for i in range(indeks_pesanan):
                                                 print(f"{pesanan_nama[i]}: {pesanan_jumlah[i]} x Rp.{pesanan_harga[i]} : Rp.{pesanan_total[i]}")
+                                                print(f"Keterangan pesanan: {kustomisasi[i]}")
+                                            print(f"Tip : {tip}")
                                             print(f"Total Harga: Rp{total_harga}                              ")
                                             print(f"Pembayaran: {opsi_pembayaran[choice_bayar-1]}")
                                             print("Silakan lakukan pembayaran di KASIR, terima kasih.")
@@ -649,6 +627,7 @@ while True:
                                                 for i in range(indeks_pesanan):
                                                     print(
                                                         f"{pesanan_nama[i]}: {pesanan_jumlah[i]} x Rp.{pesanan_harga[i]} : Rp.{pesanan_total[i]}")
+                                                print(f"Tip : Rp. {tip}")
                                                 print(f"Total Harga: Rp{total_harga}                              ")
                                                 print(f"Pembayaran: {opsi_pembayaran[choice_bayar - 1]}")
                                                 print("Silakan melakukan pembayaran langsung")
