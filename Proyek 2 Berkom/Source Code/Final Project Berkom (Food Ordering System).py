@@ -5,7 +5,7 @@ Nama Kelompok      :  - Ishaq Irfan Farizal (19624083)
                       - Alya Nur Rahmah     (19624088)
                       - Safira Berlianti    (19624100)
                       - Emilio Justin       (19624137)
-Tanggal Pengerjaan : 4-17 November 2024
+Tanggal Pengerjaan : 3-23 Desember 2024
 
 ---PROGRAM FOOD ORDERING SYSTEM COMPUTATIONAL SUSHI---
 Deskripsi : Simulasi sistem pemesanan makanan di restoran secara sederhana
